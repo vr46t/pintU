@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+     @import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap");
+
+* {
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  /* -webkit-appearance: none; */
+}
+
+.all-doners {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-direction: column;
+  /* border: solid green; */
+
+  background-image: url(../assets/backgroundwave1.png);
+
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: bottom;
+
+  /* border: solid rgb(203, 18, 151); */
+}
+
+/* ------------------------------------navbar------------------------------------- */
+nav {
+  display: flex;
+  height: 70px;
+  width: 100%;
+  background: #fd8c8c;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 50px 0 100px;
+  flex-wrap: wrap;
+  position: fixed;
+  top: 0;
+  z-index: 1;
+}
+
+nav .logo {
+  height: 70px;
+}
+
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+}
+
+nav ul li {
+  margin: 0 5px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 8px 15px;
+  border-radius: 20px;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+}
+
+nav ul li a.active,
+nav ul li a:hover {
+  color: #111;
+  background: #fff;
+}
+
+nav .menu-btn i {
+  color: #fff;
+  font-size: 22px;
+  cursor: pointer;
+  display: none;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+/* -=---------------filtersection------------------------------- */
+
+.filter-section {
+  margin-top: 65px;
+  display: flex;
+  /* background-color: rgb(122, 122, 212); */
+
+  width: 100%;
+  justify-content: space-evenly;
+  flex-direction: column;
+  /* border: solid black; */
+
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.filter-container {
+  /* background-color: aquamarine; */
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.filter-header {
+  min-height: 3vh;
+  /* background-color: brown; */
+  text-align: center;
+  /* justify-content: center; */
+}
+
+.filter-header-text {
+  align-self: center;
+
+  letter-spacing: 0.7px;
+  font-size: 34px;
+  color: #756b6f;
+  /* text-decoration: underline; */
+}
+
+/* Style the form - display items horizontally */
+.form-inline {
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+  justify-content: space-evenly;
+}
+
+/* Style the input fields */
+.form-inline select {
+  vertical-align: middle;
+  margin: 5px 10px 5px 0;
+  padding: 10px 20px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  width: 15%;
+  border-radius: 15px;
+}
+
+/* Style the submit button */
+.form-inline button {
+  padding: 10px 20px;
+  background-color: #ff4b2b;
+  border: 1px solid #ddd;
+  color: rgb(26, 19, 19);
+  width: 15%;
+  border-radius: 15px;
+  /* height: 48px; */
+  align-self: center;
+  font-size: medium;
+}
+
+.form-inline button:hover {
+  background-color: rgb(246, 248, 255);
+}
+
+/*-------------------- my added css for login sign up --------------------*/
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  /* border: solid black; */
+
+  /* background-color: aqua; */
+}
+
+.col {
+  flex: 33.33%;
+  max-width: 33.33%;
+  box-sizing: border-box;
+  padding: 15px;
+  /* background-color: brown; */
+  margin-top: 80px;
+}
+
+.donor-card {
+  background: #fff;
+  padding: 30px;
+  border-radius: 25px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+
+  /* background-color: aquamarine; */
+}
+
+.donor-card name {
+  font-size: 20px;
+  text-transform: uppercase;
+  margin: 20px 0;
+}
+
+/*---------- form properties------------------ */
+
+.donors form {
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 50px;
+  height: 100%;
+  text-align: center;
+}
+
+.donor-card input {
+  background-color: #eee;
+  border: none;
+  padding: 12px 15px;
+  margin: 8px 0;
+  width: 100%;
+  border-radius: 15px;
+}
+select {
+  border-radius: 15px;
+  vertical-align: middle;
+  margin: 5px 10px 5px 0;
+  padding: 10px 20px;
+  background-color: #eee;
+  border: 1px solid #ddd;
+  width: 100%;
+}
+
+.donors select {
+  border-radius: 15px;
+}
+
+p {
+  font-size: 14px;
+  font-weight: 100;
+  line-height: 20px;
+  letter-spacing: 0.5px;
+  margin: 20px 0 30px;
+}
+
+span {
+  font-size: 12px;
+}
+
+a {
+  color: #333;
+  font-size: 14px;
+  text-decoration: none;
+  margin: 15px 0;
+}
+
+input[type="file"]::file-selector-button {
+  border-radius: 10px;
+  border: none;
+  display: none;
+}
+
+.profile-picture-selection {
+  color: rgb(138, 112, 112);
+}
+
+.donor-card button {
+  border-radius: 20px;
+  border: 1px solid #ff4b2b;
+  background-color: #ff4b2b;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 12px 45px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: transform 80ms ease-in;
+  bottom: 0;
+}
+
+button:hover {
+  background-color: white;
+  color: #111;
+}
+
+#sig {
+  /* background-color: aqua; */
+  position: relative;
+  margin-top: 150px;
+  /* z-index: 0; */
+}
+
+@media screen and (max-width: 1000px) {
+  nav {
+    padding: 0 40px 0 50px;
+  }
+
+  .col {
+    flex: 100%;
+    max-width: 80%;
+  }
+}
+
+@media screen and (max-width: 920px) {
+  nav .menu-btn i {
+    display: block;
+  }
+
+  #click:checked ~ .menu-btn i:before {
+    content: "\f00d";
+  }
+
+  nav ul {
+    position: fixed;
+    top: 80px;
+    left: -100%;
+    background: #f99c9c;
+    height: 100vh;
+    width: 100%;
+    text-align: center;
+    display: block;
+    transition: all 0.3s ease;
+  }
+
+  #click:checked ~ ul {
+    left: 0;
+  }
+
+  nav ul li {
+    width: 100%;
+    margin: 40px 0;
+  }
+
+  nav ul li a {
+    width: 100%;
+    margin-left: -100%;
+    display: block;
+    font-size: 20px;
+    transition: 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  #click:checked ~ ul li a {
+    margin-left: 0px;
+  }
+
+  nav ul li a.active,
+  nav ul li a:hover {
+    background: none;
+    color: white(252, 255, 251);
+  }
+
+  /* ----------------------filter section-------------- */
+
+  .filter-section {
+    flex-direction: column;
+  }
+
+  .filter-header {
+    min-height: 5vh;
+  }
+
+  .form-inline select {
+    width: 80%;
+  }
+
+  .form-inline button {
+    margin-left: -40px;
+    width: 80%;
+  }
+
+  #sig {
+    margin-top: -30px;
+  }
+}
+
+.activity-logs {
+  display: flex;
+
+  /* border: solid black; */
+  flex-direction: column;
+
+  overflow-y: scroll;
+  justify-content: flex-start;
+
+  width: 100%;
+  text-align: center;
+
+  background-image: url(../assets/backgroundwave1.png);
+
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: bottom;
+  height: 60vh;
+}
+
+.activity-header {
+  font-size: 30px;
+  letter-spacing: 2px;
+  /* border: solid #111; */
+  margin-bottom: 20px;
+  position: sticky;
+}
+
+.notification {
+  max-width: 50%;
+  width: 90%;
+  /* border: solid black; */
+  margin-bottom: 20px;
+  height: 15vh;
+  /* text-align: start; */
+  align-items: center;
+  padding: 40px 0px 10px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  border-radius: 10px;
+  /* background-color: #fff; */
+  font-size: large;
+  background-color: rgb(250, 249, 249);
+}
+
+.notification button {
+  border-radius: 20px;
+  border: 1px solid #ff4b2b;
+  background-color: #ff4b2b;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 12px 45px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: transform 80ms ease-in;
+  bottom: 0;
+  align-self: center;
+  margin-top: -5px;
+  margin-left: 10px;
+}
+
+.notification button:hover {
+  background-color: white;
+  color: #111;
+}
+
+/* -----------------------filter section------------------------------- */
+
+  /* -----------------------filter section------------------------------- */
+  
+    </style>
+
+    
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pintu</title>
+    <link rel="stylesheet" href="./styles/userpage.css" />
+    <script src="./jsfiles/userpage.js"></script>
+  </head>
+
+  <body>
+    <section class="all-doners">
+      <!-- --------------------------nav bar section -------------------------------------->
+   
+
+      <!-- --------------------------------------------filter section for sms request -------------------------- -->
+
+    
+      <!--------------------------------- event creation and update donation history --------------------------------------------->
+
+      <div class="login-signup-form">
+        <div class="row">
+          <div class="col">
+            <div class="donor-card">
+              <div class="sign-up-container">
+                <form action="./editevents" method="POST" name="form1">
+                  <h1>Edits Events</h1>
+
+                  <span>Enter details of your events</span>
+                  <input
+                    type="text"
+                    name="create_fname"
+                    placeholder="Name of organization"
+                    required
+                  />
+                  <select name="create_provience" class="group-select" required>
+                    <option value="Province No. 1">Province No. 1</option>
+                    <option value="Province No. 2">Province No. 2</option>
+                    <option value="Province No. 3">Province No. 3</option>
+                    <option value="Gandaki Pradesh">Gandaki Pradesh</option>
+                    <option value="Province No. 5">Province No. 5</option>
+                    <option value="Karnali Pradesh">Karnali Pradesh</option>
+                    <option value="Sudurpashchim Pradesh">
+                      Sudurpashchim Pradesh
+                    </option>
+                  </select>
+                  <input
+                    type="text"
+                    name="district"
+                    placeholder="district"
+                    required
+                  />
+                  <input
+                    type="text"
+                    name="municipality"
+                    placeholder="municipality"
+                    required
+                  />
+
+                  <input
+                    type="datetime-local"
+                    id="meeting-time"
+                    name="meetingTime"
+                    value="2022-00-00T00:00"
+                    min="2022-06-07T00:00"
+                    max="2022-12-14T00:00"
+                  />
+
+                  <input
+                    type="text"
+                    name="create_contact"
+                    placeholder="Contact"
+                    required
+                  />
+                  <input
+                    type="email"
+                    name="create_email"
+                    placeholder="Email"
+                    required
+                  />
+                  <button type="submit">Create</button>
+                </form>
+              </div>
+            </div>
+          </div>
+
+         
+        </div>
+      </div>
+    </section>
+
+    
+
+
+  </body>
+</html>

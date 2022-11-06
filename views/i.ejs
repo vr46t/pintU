@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <style>
+ @import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.all-doners {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  /* border: solid rgb(203, 18, 151); */
+}
+
+/* ------------------------------------navbar------------------------------------- */
+nav {
+  display: flex;
+  height: 80px;
+  width: 100%;
+  background: #fd8c8c;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 50px 0 100px;
+  flex-wrap: wrap;
+  position: fixed;
+}
+
+.logo {
+  height: 70px;
+}
+
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+}
+
+nav ul li {
+  margin: 0 5px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 8px 15px;
+  border-radius: 20px;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+}
+
+nav ul li a.active,
+nav ul li a:hover {
+  color: #111;
+  background: #fff;
+}
+
+nav .menu-btn i {
+  color: #fff;
+  font-size: 22px;
+  cursor: pointer;
+  display: none;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+/*------------------landing section-------------------- */
+
+#landing {
+  margin-top: 80px;
+  height: 90vh;
+  /* background-color: #7469a4; */
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  align-items: center;
+  font-size: 25px;
+  text-decoration: bold;
+
+  width: 100%;
+  /* border: solid rgb(48, 168, 134); */
+  background-image: url(../assets/backgroundwave1.png);
+
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: bottom;
+}
+
+.landing-image {
+  height: 480px;
+  width: 600px;
+  border-radius: 20px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+/*----------------------------------- card------------------------------------- */
+
+.donors {
+  /* background-color: #371f9f; */
+  /* border: solid black; */
+}
+
+/* -------------------------------filter---------------------- */
+
+.filter-section {
+  display: flex;
+  /* background-color: rgb(122, 122, 212); */
+
+  justify-content: space-evenly;
+  flex-direction: column;
+  /* border: solid black; */
+  border: solid rgb(235, 232, 234);
+  background-color: #fd8c8c;
+  border-radius: 10px;
+}
+
+.filter-container {
+  /* background-color: aquamarine; */
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.filter-header {
+  min-height: 10vh;
+  /* background-color: brown; */
+  text-align: center;
+  /* justify-content: center; */
+}
+
+.filter-header-text {
+  align-self: center;
+
+  letter-spacing: 0.7px;
+  font-size: 34px;
+  color: white;
+  /* text-decoration: underline; */
+}
+
+/* Style the form - display items horizontally */
+.form-inline {
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+  justify-content: space-evenly;
+}
+
+/* Style the input fields */
+.form-inline select {
+  vertical-align: middle;
+  margin: 5px 10px 5px 0;
+  padding: 10px 20px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  width: 15%;
+  border-radius: 15px;
+}
+
+/* Style the submit button */
+.form-inline button {
+  padding: 10px 20px;
+  background-color: #ff4b2b;
+  border: 1px solid #ddd;
+  color: rgb(255, 255, 255);
+  width: 15%;
+  border-radius: 15px;
+  /* height: 48px; */
+  align-self: center;
+  font-size: medium;
+}
+
+
+
+.form-inline button:hover {
+  background-color: rgb(246, 248, 255);
+}
+
+/* -------------------------------filter -----------------------------------*/
+
+/* -----------------------------cards start here-------------------------- */
+
+.inner {
+  /* background-color: aqua; */
+  /* display: flex;
+  flex-wrap: wrap;
+  just ify-content: center; */
+  /* width: 70%; */
+  overflow-y: scroll;
+  height: auto;
+
+  /* border: solid rgb(193, 7, 7); */
+}
+
+.inner-inner-doner-border {
+  display: flex;
+  /* background-color: blue; */
+  width: 100%;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  -webkit-appearance: none;
+}
+
+.donors {
+  padding: 40px 0;
+  /* background: #9f2828; */
+
+  color: #040303;
+  text-align: center;
+  width: 80%;
+
+  margin-top: 50px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  /* background-color: aqua; */
+}
+
+.col {
+  flex: 33.33%;
+  max-width: 33.33%;
+  box-sizing: border-box;
+  padding: 15px;
+  /* background-color: brown; */
+}
+
+.donor-card {
+  background: #fff;
+  padding: 30px;
+  border-radius: 25px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+
+  /* background-color: aquamarine; */
+}
+
+.donor-card img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.name {
+  font-size: 20px;
+  text-transform: uppercase;
+  margin: 20px 0;
+}
+
+.user-blood-group {
+  border-radius: 25px;
+  border: 1px solid #ff4b2b;
+  background-color: #ff4b2b;
+  color: #ffffff;
+  width: 20%;
+  text-transform: uppercase;
+}
+
+.user-donation-history {
+  overflow-y: scroll;
+
+  height: 80px;
+}
+
+.user-history {
+  display: none;
+}
+
+@media screen and (max-width: 1000px) {
+  nav {
+    padding: 0 40px 0 50px;
+  }
+
+  .col {
+    flex: 100%;
+    max-width: 80%;
+  }
+
+  .vol {
+    flex: 100%;
+    max-width: 100%;
+  }
+}
+
+@media screen and (max-width: 920px) {
+  /* ---------------------------filters-------------------- */
+
+  .filter-section {
+    flex-direction: column;
+  }
+
+  .filter-header {
+    min-height: 5vh;
+  }
+
+  .form-inline select {
+    width: 80%;
+  }
+
+  .form-inline button {
+    margin-left: -40px;
+    width: 80%;
+  }
+
+  /* ---------------------------filters-------------------- */
+
+  nav .menu-btn i {
+    display: block;
+  }
+
+  .inner-inner-doner-border {
+    justify-content: center;
+  }
+
+  .group-select {
+    margin-top: 10px;
+  }
+
+  .col {
+    flex: 100%;
+    max-width: 100%;
+  }
+
+  .vol {
+    flex: 100%;
+    max-width: 100%;
+    justify-self: center;
+  }
+
+  #click:checked ~ .menu-btn i:before {
+    content: "\f00d";
+  }
+
+  nav ul {
+    position: fixed;
+    top: 80px;
+    left: -100%;
+    background: #f99c9c;
+    height: 100vh;
+    width: 100%;
+    text-align: center;
+    display: block;
+    transition: all 0.3s ease;
+  }
+
+  #click:checked ~ ul {
+    left: 0;
+  }
+
+  nav ul li {
+    width: 100%;
+    margin: 40px 0;
+  }
+
+  nav ul li a {
+    width: 100%;
+    margin-left: -100%;
+    display: block;
+    font-size: 20px;
+    transition: 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  #click:checked ~ ul li a {
+    margin-left: 0px;
+  }
+
+  nav ul li a.active,
+  nav ul li a:hover {
+    background: none;
+    color: white(252, 255, 251);
+  }
+}
+
+/* ---------------------------------events------------------------ */
+
+.events {
+  display: flex;
+  justify-content: center;
+}
+/* -----------------------event-section------------------ */
+
+
+/* -----------------------filter section------------------------------- */
+
+  </style>
+  <meta charset="utf-8">
+  <title>Pintu</title>
+  <!-- <link rel="stylesheet" href="index.css"> -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://kit.fontawesome.com/f70fd3821b.js" crossorigin="anonymous"></script>
+  <script src="./jsfiles/index.js"></script>
+  <!-- <link href="https://cdn.lineicons.com/3.0/lineicons.css" rel="stylesheet"> -->
+</head>
+<body>
+  <section class="all-doners">
+
+
+    <!-- 
+    ----------------------------------navbar section----------------------- -->
+    <nav>
+      <div>
+        <img src="./assets/pintu.png" class="logo" />
+      </div>
+      <input type="checkbox" id="click" />
+      <label for="click" class="menu-btn">
+        <i class="fas fa-bars"></i>
+      </label>
+      <ul>
+        <li><a href="./">Home</a></li>
+        <li><a href="./events">Events</a></li>
+       
+        <li><a href="./loginregister">Login</a></li>
+        <li><a href="./loginregister">SignUp</a></li>
+      
+      </ul>
+    </nav>
+
+
+
+    <!-- -----------------------------landing page section with image------------------------ -->
+
+
+    <section class="row" id="landing">
+      <div class="col">
+        One pint of blood can save up to three lives.
+
+        Start donating today.
+
+
+      </div>
+      <div>
+        <img src="./assets/6262.jpg" alt="blood donation" class="landing-image">
+      </div>
+
+    </section>
+
+    <!-- --------------------------here starts the donor filter and donor cards -------------------------------- -->
+
+    <div class="donors">
+
+      <!-- --------------------------------------------------filter section ---------------------------------------------- -->
+      <div class="filter-section">
+        <div class="filter-header">
+
+          <label class="filter-header-text">Donors</label>
+        </div>
+        <div class="filter-container">
+          <form action="./request" method="POST" name="form1">
+            <input type="text" name='request_email' placeholder="Email" required />
+          <button type="submit">Request</button>
+          </form>
+
+          <!-- <form action="./search" method="POST" name="form1" id="form1" class="form-inline">
+
+            <select name="subject" id="subject">
+              <option value="" selected="selected">Provience</option>
+              <option value="Province No. 1">Province No. 1</option>
+              <option value="Province No. 3">Province No. 3</option>
+            </select>
+            <br><br>
+            <select name="topic" id="topic">
+              <option value="" selected="selected">District</option>
+              <option value="Kathmandu">Kathmandu</option>
+              <option value="Bhaktapur">Bhaktapur</option>
+            </select>
+            <br><br>
+            <select name="chapter" id="chapter">
+              <option value="" selected="selected">Municipality</option>
+              <option value="Kathmandu">Kathmandu</option>
+              <option value="Changu narayan">Changu narayan</option>
+            </select>
+            <br><br>
+            <select name="BloodGroup">
+              <option value="" selected="selected">Blood Group</option>
+              <option value="A+">A+</option>
+							<option value="A-">A-</option>
+							<option value="B+">B+</option>
+							<option value="B-">B-</option>
+							<option value="O+">O+</option>
+							<option value="O-">O-</option>
+							<option value="AB+">AB+</option>
+							<option value="AB-">AB-</option>
+            </select>
+            <br><br>
+           
+            <button type="submit"> Search</button>
+          
+          </form> -->
+        </div>
+      </div>
+
+      <!-- -----------------------------------the donor cards starts from here------------------------------------------------ -->
+
+
+
+      <div class="inner">
+
+
+
+
+
+        <div class="row">
+          <% for(var key in result ) {%>
+
+          <!-- my added -->
+          <div class="col">
+            
+            <div class="donor-card">
+              <% for(var prop in result[key] ) {%>
+                <% if(result[key][prop].status ==="Offline" )  {%>
+                  Curenntly Offline
+                    <% break %>
+              <% } else{%>
+              <!-- <img src="./assets/p1.jpg" alt=""> -->
+              <% if(prop == 0 )  {%>
+              <div class="name"><%= result[key][prop].name%></div>
+              <div class="stars">
+                <div class"contact-number"> <i class="fa-solid fa-phone"></i>: <%= result[key][prop].contact%></div>
+                <div class"email"> <i class="fa-solid fa-envelope"></i>:<%= result[key][prop].email%></div>
+                <div class="address"><i class="fa-solid fa-location-arrow"></i>:<%= result[key][prop].municipality%></div>
+                <div class="blood-group">Blood Type: <%= result[key][prop].group%></div>
+                <div>life saved : <%= result[key][prop].lives%></div>
+              </div>
+              <% } %>
+              <div>
+                <div class="user-history">
+                  <div class="user-donation-history">
+                    <% if(result[key][prop].date ===null && result[key][prop].orgname === null)  {%>
+                      Donation History not added
+                      <% }else{ %>
+
+                      
+                    Donated in <%= result[key][prop].date%> via <%= result[key][prop].orgname  %>
+                    
+                    <% } %>
+                  </div>
+                </div>
+                
+              </div>
+              <% } %>
+              <% } %>
+            </div>
+            <!-- <form action="./request" method="POST" name="form1">
+              <input type="text" name='phoneNumber' placeholder="Contact Number" required />
+            <button type="submit">Request</button>
+            </form> -->
+            
+          </div>
+
+        
+ 
+    
+
+          <% } %>
+      </div>
+      
+        </div>
+        
+ <!--------------------------------- donor cards section ends here  --------------------------------->
+    </div>
+    </div>
+  </section>
+  <!-- -----------------------------  events------------------------ -->
+
+  
+
+
+
+ 
+  <!-- -----------------------------  events------------------------ -->
+
+
+
+  </section>
+
+
+
+
+
+</body>
+
+
+</html>
